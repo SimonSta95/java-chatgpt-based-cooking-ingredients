@@ -11,7 +11,6 @@ import org.springframework.web.client.RestClient;
 import java.util.List;
 
 @Service
-
 public class IngredientService {
 
     private final RestClient restClient;
