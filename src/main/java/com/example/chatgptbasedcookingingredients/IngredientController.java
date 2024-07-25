@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class IngredientController {
 
+    private final IngredientService ingredientService;
+
     @PostMapping
-    String categorizeIngredient(@RequestBody String ingredient) {
+    public String categorizeIngredient(@RequestBody String ingredient) {
 
-        // TODO: This should return "vegan", "vegetarian" or "regular" depending on the ingredient.
+        String prompt = "Is " + ingredient + " Vegan, Vegetarian or Regular?";
 
-        return "vegan";
+        return ingredientService.getAnswerFromOpenAi(prompt);
     }
 
 }
